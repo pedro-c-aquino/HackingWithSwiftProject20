@@ -38,6 +38,12 @@ class GameViewController: UIViewController {
             return .all
         }
     }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        guard let skView = view as? SKView else { return }
+        guard let gameScene = skView.scene as? GameScene else { return }
+        gameScene.explodeFireworks()
+    }
 
     override var prefersStatusBarHidden: Bool {
         return true
